@@ -1,3 +1,5 @@
+[![CodeQL Advanced](https://github.com/nodoubtz/supabase-js-nodoubtz/actions/workflows/codeql.yml/badge.svg)](https://github.com/nodoubtz/supabase-js-nodoubtz/actions/workflows/codeql.yml)
+
 # `supabase-js` - Isomorphic JavaScript Client for Supabase.
 
 - **Documentation:** https://supabase.com/docs/reference/javascript/start
