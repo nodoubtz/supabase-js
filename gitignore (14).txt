@@ -1,0 +1,37 @@
+# Ignore sensitive files and directories
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+*.pem
+*.key
+*.crt
+*.cert
+
+# Ignore log files
+*.log
+
+# Ignore SSH keys
+id_rsa
+id_rsa.pub
+
+# Ignore database files
+*.sqlite3
+*.db
+
+# Ignore npm debug files
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Ignore OS generated files
+.DS_Store
+Thumbs.db
+
+# Ignore application secrets
+secrets.yml
+config/secrets.yml
+config/initializers/secret_token.rb
+config/credentials.yml.enc
+storage/*
