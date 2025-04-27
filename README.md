@@ -1,3 +1,5 @@
+[![CodeQL Advanced](https://github.com/nodoubtz/supabase-js-nodoubtz/actions/workflows/codeql.yml/badge.svg)](https://github.com/nodoubtz/supabase-js-nodoubtz/actions/workflows/codeql.yml)
+
 # Supabase JS - Nodoubtz Fork
 
 [![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](https://github.com/nodoubtz/supabase-js-nodoubtz/blob/Nodoubtz/LICENSE)
