@@ -1,93 +1,87 @@
-[![CodeQL Advanced](https://github.com/nodoubtz/supabase-js-nodoubtz/actions/workflows/codeql.yml/badge.svg)](https://github.com/nodoubtz/supabase-js-nodoubtz/actions/workflows/codeql.yml)
+# Supabase JS - Nodoubtz Fork
 
-# `supabase-js` - Isomorphic JavaScript Client for Supabase.
+[![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](https://github.com/nodoubtz/supabase-js-nodoubtz/blob/Nodoubtz/LICENSE)
 
-- **Documentation:** https://supabase.com/docs/reference/javascript/start
-- TypeDoc: https://supabase.github.io/supabase-js/v2/
+This repository is a fork of the official [Supabase JS](https://github.com/supabase/supabase-js) library. It provides an isomorphic JavaScript client for interacting with Supabase services, including:
 
-> [!NOTE]
-> Do you want to help us shape the future of this library? [We're hiring](https://jobs.ashbyhq.com/supabase/85d07345-47c6-4980-82e2-57782f83ab4e).
+- Querying your Supabase database.
+- Subscribing to real-time events.
+- Uploading and downloading files.
+- Browsing TypeScript examples.
+- Invoking PostgreSQL functions via RPC.
+- Invoking Supabase Edge Functions.
+- Querying `pgvector` for AI-related functionalities.
+
+## Table of Contents
+
+- [About](#about)
+- [Installation](#installation)
+- [Usage](#usage)
+- [License](#license)
+- [Contributing](#contributing)
+- [Acknowledgements](#acknowledgements)
+
+---
+
+## About
+
+Supabase is an open-source Firebase alternative. This library serves as the JavaScript client for Supabase, making it simple to interact with Supabase APIs in your web or Node.js applications.
+
+Visit the official Supabase website: [https://supabase.com](https://supabase.com)
+
+## Installation
+
+Install the library using npm or yarn:
+
+```bash
+# Using npm
+npm install @supabase/supabase-js
+
+# Using yarn
+yarn add @supabase/supabase-js
+```
 
 ## Usage
 
-First of all, you need to install the library:
+Here's a basic example of how to initialize the client and make a query:
 
-```sh
-npm install @supabase/supabase-js
-```
-
-Then you're able to import the library and establish the connection with the database:
-
-```js
+```typescript
 import { createClient } from '@supabase/supabase-js'
 
-// Create a single supabase client for interacting with your database
-const supabase = createClient('https://xyzcompany.supabase.co', 'public-anon-key')
+const supabaseUrl = 'https://your-supabase-url.supabase.co'
+const supabaseKey = 'your-anon-key'
+const supabase = createClient(supabaseUrl, supabaseKey)
+
+// Example: Fetch data from a table
+const { data, error } = await supabase
+  .from('your_table_name')
+  .select('*')
+
+if (error) {
+  console.error('Error fetching data:', error)
+} else {
+  console.log('Data:', data)
+}
 ```
 
-### UMD
+For more examples, refer to the [official documentation](https://supabase.com/docs).
 
-You can use plain `<script>`s to import supabase-js from CDNs, like:
+## License
 
-```html
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-```
+This project is licensed under the [MIT License](https://github.com/nodoubtz/supabase-js-nodoubtz/blob/Nodoubtz/LICENSE).
 
-or even:
+## Contributing
 
-```html
-<script src="https://unpkg.com/@supabase/supabase-js@2"></script>
-```
+Contributions are welcome! If you'd like to contribute to this project, please fork the repository and submit a pull request.
 
-Then you can use it from a global `supabase` variable:
+1. Fork the repository.
+2. Create a new branch: `git checkout -b feature-branch-name`.
+3. Make your changes and commit them: `git commit -m 'Add some feature'`.
+4. Push your branch: `git push origin feature-branch-name`.
+5. Open a pull request.
 
-```html
-<script>
-  const { createClient } = supabase
-  const _supabase = createClient('https://xyzcompany.supabase.co', 'public-anon-key')
+## Acknowledgements
 
-  console.log('Supabase Instance: ', _supabase)
-  // ...
-</script>
-```
+This project is a fork of the official [Supabase JS](https://github.com/supabase/supabase-js) repository. Special thanks to the Supabase team for their amazing work.
 
-### ESM
-
-You can use `<script type="module">` to import supabase-js from CDNs, like:
-
-```html
-<script type="module">
-  import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm'
-  const supabase = createClient('https://xyzcompany.supabase.co', 'public-anon-key')
-
-  console.log('Supabase Instance: ', supabase)
-  // ...
-</script>
-```
-
-### Deno
-
-You can use supabase-js in the Deno runtime via [JSR](https://jsr.io/@supabase/supabase-js):
-
-```js
-import { createClient } from 'jsr:@supabase/supabase-js@2'
-```
-
-### Custom `fetch` implementation
-
-`supabase-js` uses the [`cross-fetch`](https://www.npmjs.com/package/cross-fetch) library to make HTTP requests, but an alternative `fetch` implementation can be provided as an option. This is most useful in environments where `cross-fetch` is not compatible, for instance Cloudflare Workers:
-
-```js
-import { createClient } from '@supabase/supabase-js'
-
-// Provide a custom `fetch` implementation as an option
-const supabase = createClient('https://xyzcompany.supabase.co', 'public-anon-key', {
-  global: {
-    fetch: (...args) => fetch(...args),
-  },
-})
-```
-
-## Badges
-
-[![Coverage Status](https://coveralls.io/repos/github/supabase/supabase-js/badge.svg?branch=master)](https://coveralls.io/github/supabase/supabase-js?branch=master)
+---
